@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700" rel="stylesheet">
+	<style type="text/css">
+
+		body {
+			margin: 10px;
+			font-family: sans-serif;
+			/*background-color: #282828;*/
+			font-family: 'Roboto Mono', monospace;
+
+		}
+		h1 {
+			font-weight: bold;
+		}
+		a {
+			color: #6925bb;
+		}
+		a:hover {
+			color: #9E6ADD;
+			transition: 200ms;
+		}
+		.row:after {
+    		content: "";
+    		display: table;
+    		clear: both;
+		}
+		input[type="range"] {
+		  display: block;
+		  -webkit-appearance: none;
+		  background-color: #bdc3c7;
+		  width: 300px;
+		  height: 5px;
+		  border-radius: 5px;
+		  outline: 0;
+		  margin-bottom: 20px;
+		  margin-top: 20px;
+		}		
+		input[type=range]::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  border: 1px solid #000000;
+		  height: 26px;
+		  width: 16px;
+		  border-radius: 3px;
+		  background: #ffffff;
+		  cursor: pointer;
+		  margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+		  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+		}
+		.button {
+		  background: #6925bb;
+		  width: 180px;
+		  height: 40px;
+		  
+		  padding: 4px 0;
+		  border: none;
+		  font-family: 'Roboto Mono', monospace;
+		  font-weight: light;
+		  color: white;
+		  border-radius: 3px;
+		}
+		.container {
+			float:left;
+			width: 60%;
+			filter: contrast(1.1);
+		}
+		.slidecontainer {
+			float: right;
+			width: 40%;
+		}
+
+		.blend {
+			position: absolute;
+		  	width: 750px;
+		  	height: 750px;
+		  	background-size: 750px 750px;
+		  	background-blend-mode: multiply;
+		  	background-image: url('m33_b.png');
+		  	background-color: blue;
+		  	mix-blend-mode: screen;
+		  	-webkit-filter: brightness(100%);
+		  	-webkit-filter: saturate(2.5); 
+		  	/*display: none; */
+		}
+		.blend2 {
+			position: absolute;
+		  	width: 750px;
+		  	height: 750px;
+		  	background-size: 750px 750px;
+		  	background-blend-mode: multiply;
+		  	background-image: url('m33_v.png');
+		  	background-color: green;
+		  	mix-blend-mode: screen;
+		  	-webkit-filter: brightness(500%); 
+		  	-webkit-filter: saturate(17); 
+		  	/*display: none;*/
+
+		}
+		.blend3 {
+		 	position: absolute;
+			width: 750px;
+			height: 750px;
+			background-blend-mode: multiply;
+			background-image: url('m33_ha.png');
+			background-color: #f42f00;
+		  	mix-blend-mode: screen;
+		  	background-size: 750px 750px;
+		  	-webkit-filter: saturate(4.4);
+		  	-webkit-filter: brightness(320%); 
+		  	opacity: 100%;
+
+		  	/*display: none;*/
+
+		}
+		/*Can add Saturation and Contrast*/
+
+	</style>
+</head>
+<body>
+<div class="row">
+<div class="slidecontainer column">
+	<h1>Color The Universe</h1>
+	<h2>Learn how to make astronomy images.</h2>
+	<p>This is based on a photoshop <a href="https://www.dropbox.com/s/7yi02cstex1o1rt/Color%20the%20Universe%2020180121.pdf?dl=0">tutorial</a> by Travis Rector. What we're seeing is three images screened together. More features to come.</p>
+	<br>
+	<p>B Saturation	</p>	
+  <input type="range" min="1" max="7" step=".1" class="range" id="blueSat">
+  	<p>B Brightness	</p>	
+  <input type="range" min="1" max="7" step=".1" id="blueBright">
+  	<p>V Saturation	</p>	
+  <input type="range" min="2" max="26" step=".1" class="range" id="greenSat">
+  	<p>V Brightness	</p>	
+  <input type="range" min="1" max="7" step=".1" id="greenBright">
+    <p>Ha Saturation	</p>	
+  <input type="range" min="1" max="7" step=".1" class="range" id="redSat">
+  	<p>Ha Brightness	</p>	
+  <input type="range" min="1" max="7" step=".1" id="redBright">
+  <br>
+  <button id="button" class="button" value="preset" name="preset" >Original</button>
+
+</div>
+<!-- <div><p>Image 1 Display Toggle</p><input type="checkbox" id="myCheck" value="Image 1" onclick="myFunction()"></div> -->
+
+<div class="container column">
+<div class="blend" id="1"></div>
+<div class="blend2" id="2"></div>
+<div class="blend3" id="3"></div>
+</div>
+</div>
+<script type="text/javascript">
+	
+function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var image = document.getElementById("1");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    image.style.display = "none";
+  } else {
+    image.style.display = "block";
+  }
+}
+
+var blueSat = document.getElementById("blueSat");
+var blueBright = document.getElementById("blueBright");
+
+blueSat.addEventListener('change', function() {
+	document.getElementById('1').setAttribute("style", "-webkit-filter:saturate(" + this.value + ")");
+});
+blueBright.addEventListener('change', function() {
+	document.getElementById('1').setAttribute("style", "-webkit-filter:brightness(" + this.value + ")");
+});
+
+var greenSat = document.getElementById("greenSat");
+var greenBright = document.getElementById("greenBright");
+
+greenSat.addEventListener('change', function() {
+	document.getElementById('2').setAttribute("style", "-webkit-filter:saturate(" + this.value + ")");
+});
+greenBright.addEventListener('change', function() {
+	document.getElementById('2').setAttribute("style", "-webkit-filter:brightness(" + this.value + ")");
+});
+ 
+var redSat = document.getElementById("redSat");
+var redBright = document.getElementById("redBright");
+
+redSat.addEventListener('change', function() {
+	document.getElementById('3').setAttribute("style", "-webkit-filter:saturate(" + this.value + ")");
+});
+redBright.addEventListener('change', function() {
+	document.getElementById('3').setAttribute("style", "-webkit-filter:brightness(" + this.value + ")");
+});
+
+
+
+var button = document.getElementById('button'); 
+button.addEventListener('click', function() {
+	document.getElementById('1').setAttribute("style", "-webkit-filter: none !important;");
+	document.getElementById('1').style.backgroundColor = "transparent";
+	document.getElementById('2').setAttribute("style", "-webkit-filter: none !important; ");
+	document.getElementById('2').style.backgroundColor = "transparent !important";
+	document.getElementById('3').setAttribute("style", "-webkit-filter: none !important; ");
+	document.getElementById('3').style.backgroundColor = "transparent";});
+
+</script>
+</body>
+</html>
