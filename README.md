@@ -1,1 +1,1 @@
-# color-mixer-widget
+# art-is-good

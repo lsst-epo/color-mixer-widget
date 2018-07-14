@@ -1,0 +1,113 @@
+body {
+	margin: 10px;
+	font-family: sans-serif;
+	/*background-color: #282828;*/
+	font-family: 'Roboto Mono', monospace;
+
+}
+h1 {
+	font-weight: bold;
+}
+
+a {
+	color: #6925bb;
+}
+
+a:hover {
+	color: #9E6ADD;
+	transition: 200ms;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: #bdc3c7;
+  width: 300px;
+  height: 5px;
+  border-radius: 5px;
+  outline: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}		
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 26px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+.button {
+  background: #6925bb;
+  width: 180px;
+  height: 40px;
+  
+  padding: 4px 0;
+  border: none;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: light;
+  color: white;
+  border-radius: 3px;
+}
+.container {
+	float:left;
+	width: 60%;
+	filter: contrast(1.1);
+}
+.slidecontainer {
+	float: right;
+	width: 40%;
+}
+
+.blend {
+	position: absolute;
+  	width: 750px;
+  	height: 750px;
+  	background-size: 750px 750px;
+  	background-blend-mode: multiply;
+  	background-image: url('./assets/m33/m33_b.png');
+  	background-color: blue;
+  	mix-blend-mode: screen;
+  	-webkit-filter: brightness(100%);
+  	-webkit-filter: saturate(2.5); 
+  	/*display: none; */
+}
+.blend2 {
+	position: absolute;
+  	width: 750px;
+  	height: 750px;
+  	background-size: 750px 750px;
+  	background-blend-mode: multiply;
+  	background-image: url('./assets/m33/m33_v.png');
+  	background-color: green;
+  	mix-blend-mode: screen;
+  	-webkit-filter: brightness(500%); 
+  	-webkit-filter: saturate(17); 
+  	/*display: none;*/
+
+}
+.blend3 {
+ 	position: absolute;
+	width: 750px;
+	height: 750px;
+	background-blend-mode: multiply;
+	background-image: url('./assets/m33/m33_ha.png');
+	background-color: #f42f00;
+  	mix-blend-mode: screen;
+  	background-size: 750px 750px;
+  	-webkit-filter: saturate(4.4);
+  	-webkit-filter: brightness(320%); 
+  	opacity: 100%;
+
+  	/*display: none;*/
+
+}
+/*Can add Saturation and Contrast*/
